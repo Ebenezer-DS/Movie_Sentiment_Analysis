@@ -25,21 +25,11 @@ __**Sentiment**: The sentiment associated with the review (positive or negative)
 **Project Structure**
 
 The project is structured as follows:
-├── data/                    # Folder containing the dataset
 ├── notebooks/                # Jupyter notebooks with analysis
 ├── models/                   # Trained machine learning models
-├── scripts/                  # Python scripts for data processing and modeling
 ├── README.md                 # Project description
 ├── requirements.txt          # Dependencies required to run the project
-└── main.py                   # Main Python script to run the project
-├── /templates
-│   └── index.html  # The HTML file 
-├── /static
-│   ├── styles.css  # My custom CSS file
-│   ├── movie_sentiment_review_website_background.jpeg  # Background image
-│   └── sentiment_distribution.png  # Sentiment visualization
-│
-├── app.py  # Your Flask application
+├── app.py  # My streamlit application
 ├── sentiment_model.h5  # Your trained model
 └── tokenizer.pickle  # Your tokenizer
 
@@ -52,7 +42,7 @@ pip install -r requirements.txt
 
 The main libraries used include:
 
-__Python 3.x__
+__Python 3.12__
 __scikit-learn__
 __pandas__
 __numpy__
@@ -60,24 +50,25 @@ __matplotlib__
 __nltk__
 
 **Running the Project**
+
 1. Clone the repository:
-git clone https://github.com/yourusername/movie-sentiment-analysis.git
+git clone https://github.com/Ebenezer-DS/movie-sentiment-analysis.git
 cd movie-sentiment-analysis
 
-2. Preprocess the data:
-python scripts/preprocess.py
+2. Ensure all dependencies are installed: Make sure you have installed the necessary libraries by running:
+pip install -r requirements.txt
 
-3. Train the model
-python scripts/train_model.py
+3. Run the Streamlit app: The entire workflow (preprocessing, model training, evaluation, and prediction) is now handled by app.py. To launch the app locally, simply run:
+streamlit run app.py
 
-4. Evaluate the model:
-python scripts/evaluate.py
+4. Push changes to GitHub: Once you’ve made changes or added files, you can push them to GitHub:
+git add .
+git commit -m "Updated Streamlit app"
+git push origin main
 
 **Modeling**
 The project uses various machine learning algorithms, including:
-__Logistic Regression: A simple and effective model for binary classification.__
-__Random Forest: A more complex ensemble method that improves model accuracy by averaging multiple decision trees.__
-__Support Vector Machines (SVM): A robust model for high-dimensional data.__
+__Long Short-Term Memory (LSTM) is a type of recurrent neural network (RNN) architecture specifically designed to handle long-term dependencies in sequential data. Unlike traditional RNNs, which struggle with the vanishing gradient problem, LSTMs use special "memory cells" and gates (input, forget, and output gates) that control the flow of information, allowing them to retain information over longer sequences. This makes LSTMs particularly effective for tasks like natural language processing, time-series forecasting, and any other task involving sequential data. In sentiment analysis, LSTMs can capture the context and sentiment expressed in a sequence of words, making them highly effective for text classification.__
 
 The models are trained on a portion of the data and tested on a separate validation set to evaluate performance.
 
@@ -85,10 +76,8 @@ The models are trained on a portion of the data and tested on a separate validat
 The models are evaluated using common metrics such as accuracy, precision, recall, and F1-score. The results indicate that the sentiment classification can be performed with reasonable accuracy using the chosen models.
 
 Model	                   Accuracy	Precision	Recall	F1-score
-Logistic Regression	            0.85	0.84	0.86	0.85
-Random Forest	                0.88	0.87	0.89	0.88
-Support Vector Machine (SVM)	0.86	0.85	0.87	0.86
+LSTM                        0.8790    0.8585     0.9116   0.8843
 
 **Conclusion**
 
-This project demonstrates how sentiment analysis can be applied to movie reviews to classify sentiment using machine learning models. By preprocessing the text data and training various models, we can achieve accurate predictions of movie review sentiment. Further improvements could involve using deep learning models such as LSTM or fine-tuning transformer-based models like BERT for better results.
+This project demonstrates how sentiment analysis can be applied to movie reviews to classify sentiment using machine learning models. By preprocessing the text data and training models, we can achieve accurate predictions of movie review sentiment. Long Short-Term Memory (LSTM) models, a type of deep learning model, are especially useful for this task as they are well-suited for processing sequential data like text.
